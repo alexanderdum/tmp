@@ -1,9 +1,11 @@
 #!/bin/bash
 yes="yes"
+suffix="M"
 while [ "$yes" = "yes" ]
 do
 exitcode=0
 echo "Delete files bigger than size in directory"
+echo "Developer Filippov A.A"
 echo "input directory name"
 read directory
 if ! [ -d $directory ]; then
@@ -14,12 +16,12 @@ if ! [ -d $directory ]; then
 else
 	echo "input size in mb"
 	read size
-	find $directory -size +$size
+	find $directory -size +$size"M"
 	if [ $? = 0 ]; then
 		echo "delete this files y/n"
 		read del_files
 		if [ "$del_files" = "y" ]; then
-			find $directory -size +$size -delete
+			find $directory -size +$size"M" -delete
 			if [ $? = 0 ]; then
 				echo "Again yes/no"
 				read yes

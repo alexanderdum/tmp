@@ -1,5 +1,4 @@
 FROM centos
-RUN yum install git -y
-WORKDIR ["/code_directory"]
-RUN ["git", "clone", "https://github.com/alexanderdum/tmp.git", "."]
+RUN yum install nano -y
+WORKDIR /code_directory
 CMD ["/bin/bash"]
